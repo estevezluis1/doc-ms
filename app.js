@@ -8,7 +8,7 @@ const PORT = 8080;
 app.use(express.static(path.join(__dirname, 'static')))
 
 app.get('/search', (req, res) => {
-	exec(`recollq -q "${req.query.query}"`, (err, stdout, stderr) => {
+	exec(`recoll -t -q "${req.query.query}"`, (err, stdout, stderr) => {
 
 		const results = stdout.split('\n');
 
